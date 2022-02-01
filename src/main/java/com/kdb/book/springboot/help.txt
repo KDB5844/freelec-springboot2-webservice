@@ -1,0 +1,8 @@
+책 내용 요약
+
+Spring Framework 에서의 Bean 주입 방법
+    -생성자 주입
+
+    -@Autowired (필드 주입)
+
+    -setter 주입
