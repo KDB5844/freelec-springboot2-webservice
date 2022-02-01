@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class PostSaveRequestDto {
+public class PostsSaveRequestDto {
 
     /**
      * Entity 클래스와 거의 유사한 형태지만 Dto 클래스를 추가로 생성함.
@@ -24,7 +24,7 @@ public class PostSaveRequestDto {
     private String author;
 
     @Builder
-    public PostSaveRequestDto(String title, String content, String author) {
+    public PostsSaveRequestDto(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
