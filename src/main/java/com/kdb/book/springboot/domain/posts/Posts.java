@@ -1,5 +1,6 @@
 package com.kdb.book.springboot.domain.posts;
 
+import com.kdb.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Getter                                                     //6
 @NoArgsConstructor                                          //5
 @Entity                                                     //1
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     /**
      * 1 : 테이블과 링크될 클래스임을 나타낸다.
