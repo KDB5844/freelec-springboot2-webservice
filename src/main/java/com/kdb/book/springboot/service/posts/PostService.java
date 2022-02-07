@@ -2,12 +2,16 @@ package com.kdb.book.springboot.service.posts;
 
 import com.kdb.book.springboot.domain.posts.Posts;
 import com.kdb.book.springboot.domain.posts.PostsRepository;
+import com.kdb.book.springboot.web.dto.PostsListResponseDto;
 import com.kdb.book.springboot.web.dto.PostsResponseDto;
 import com.kdb.book.springboot.web.dto.PostsSaveRequestDto;
 import com.kdb.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -42,6 +46,13 @@ public class PostService {
         Posts posts = postsRepository.getOne(id);
         PostsResponseDto responseDto = new PostsResponseDto(posts);
         return responseDto;
+    }
+
+    @Transactional(readOnly = true)     //readOnly=true 옵션을 주면 트랙잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도가 개선된다. CUD 기능이 전혀 없는 서비스 메소드에 사용하기 좋음
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
 }
