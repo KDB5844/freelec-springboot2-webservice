@@ -37,6 +37,11 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     implementation('com.h2database:h2')
     implementation('org.springframework.session:spring-session-jdbc')
+    //JUnit4 추가
+    testImplementation("org.junit.vintage:junit-vintage-engine") {
+        exclude group: "org.hamcrest", module: "hamcrest-core"
+    }
+    testImplementation('org.springframework.security:spring-security-test')
 }
 
 test {
