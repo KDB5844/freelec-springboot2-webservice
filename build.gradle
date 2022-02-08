@@ -36,6 +36,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-mustache')
     compileOnly('org.projectlombok:lombok')
     implementation('com.h2database:h2')
+    implementation('org.springframework.session:spring-session-jdbc')
 }
 
 test {
