@@ -35,6 +35,7 @@ public class OAuthAttributes {
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
+                .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
                 .nameAttributeKey(userNameAttributeName)
@@ -42,10 +43,10 @@ public class OAuthAttributes {
     }
 
     /**
-     * UserEntity를 생선한다.
-     * OAuthAttributes에서 엔티티를 생성하는 시점은 처음 가입할 때이다.
+     * UserEntity를 생성
+     * OAuthAttributes에서 엔티티를 생성하는 시점은 처음 가입할 때
      * 가입할 때의 기본 권한을 GUEST로 주기 위해서 role 빌더값에는 Role.GUEST를 사용
-     * OAuthAttributes 클래스 생성이 끝났으면 같은 패키지에 SessionUser 클래스를 생성해야한다.
+     * OAuthAttributes 클래스 생성이 끝났으면 같은 패키지에 SessionUser 클래스를 생성해야함
      */
     public User toEntity() {
         return User.builder()
