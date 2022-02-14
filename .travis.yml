@@ -25,7 +25,7 @@ notifications:
       - "sbjo7713@gmail.com"
 
 before_deploy:
-  - zip -r freelec-springboot2-webservice
+  - zip -r freelec-springboot2-webservice *
   - mkdir -p deploy
   - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
 
